@@ -1,0 +1,32 @@
+version: "3"
+services:
+  db:
+    image: mysql
+    container_name: mysql_database
+    restart: always
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: data
+      MYSQL_ROOT_PASSWORD: password
+  reimbursement:
+    image: reimburse
+    container_name: reimburse_api
+    ports:
+      - 8080:8080
+    environment:
+      DB_USERNAME: user
+      DB_PASSWORD: password
+      DB_URL: jdbc:mysql://db:3306/data?createDatabaseIfNotExist=true&autoReconnect=true
+      EMAIL_URL: http://email:8080/api/email
+    depends_on:
+      - db
+      - email
+  email:
+    image: email
+    container_name: email_api
+    ports:
+      - 8000:8080
+    environment:
+      EMAIL_USER: some_email@someemail.com
+      EMAIL_PASS: email_password
