@@ -3,7 +3,7 @@ The Expense Reimbursement System will manage the process of reimbursing employee
 ## To run the project
 Build both the API images by running this on each project directory:
 ```
-docker build -t [tag-name]
+docker build -t [tag-name] .
 ```
 Then replace the environment variables in ``docker-compose.yml`` with your own credentials.
 #### Environment Variables
