@@ -17,7 +17,7 @@ Then replace the environment variables in ``docker-compose.yml`` with your own c
 `EMAIL_USER` - The username of the gmail account your API is going to use to send emails.  
 `EMAIL_PASS` - The password of the gmail account.  
 
-Finally, run the project in the same directory of the `docker-compose.yml` file and type:
+Finally, go to the same directory as the `docker-compose.yml` file and type:
 ```
 docker compose up
 ```
